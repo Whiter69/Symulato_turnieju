@@ -1,0 +1,206 @@
+\doxysection{stats Namespace Reference}
+\hypertarget{namespacestats}{}\label{namespacestats}\index{stats@{stats}}
+
+
+Rozbudowany moduł statystyk z wizualizacją danych.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacestats_a788045133b03023981a82b5dff933a87}{get\+\_\+total\+\_\+goals}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Oblicza łączną liczbę goli w turnieju. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacestats_ab52a33486d94abddd6924906476c5c60}{get\+\_\+average\+\_\+goals\+\_\+per\+\_\+team}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Oblicza średnią liczbę goli na drużynę \end{DoxyCompactList}\item 
+dict \mbox{\hyperlink{namespacestats_a4f72ed0dff8184e13c30ab66b752e590}{get\+\_\+goal\+\_\+distribution}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Zwraca rozkład goli według drużyn. \end{DoxyCompactList}\item 
+List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} \mbox{\hyperlink{namespacestats_abb26890dc87f43f1ac47e32c73b6eb96}{get\+\_\+top\+\_\+scorers}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams, int top\+\_\+n=5)
+\begin{DoxyCompactList}\small\item\em Zwraca listę najlepszych strzelców. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestats_a5cbba8a2e3bfe97c3c110b39afabc1c3}{plot\+\_\+goals\+\_\+distribution}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Generuje i zapisuje wykres słupkowy rozkładu goli. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestats_a0f2dc824a5da47887787d06378fc5abd}{plot\+\_\+rank\+\_\+vs\+\_\+performance}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Generuje wykres porównujący ranking FIFA z osiągnięciami. \end{DoxyCompactList}\item 
+dict \mbox{\hyperlink{namespacestats_a9909318f6d3d217f3ec651fc439c13e6}{generate\+\_\+stats\+\_\+report}} (List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} teams)
+\begin{DoxyCompactList}\small\item\em Generuje kompleksowy raport statystyczny. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestats_a25b98ece4812e8f74f4cde211122f0d4}{print\+\_\+stats\+\_\+report}} (dict report)
+\begin{DoxyCompactList}\small\item\em Wyświetla raport statystyczny w czytelnej formie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rozbudowany moduł statystyk z wizualizacją danych. 
+
+Moduł zawiera funkcje do\+:
+\begin{DoxyItemize}
+\item Obliczania statystyk turnieju
+\item Generowania wykresów
+\item Tworzenia raportów
+\end{DoxyItemize}
+
+@requires matplotlib.\+pyplot @requires numpy @requires functools.\+reduce 
+
+\label{doc-func-members}
+\Hypertarget{namespacestats_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacestats_a9909318f6d3d217f3ec651fc439c13e6}\index{stats@{stats}!generate\_stats\_report@{generate\_stats\_report}}
+\index{generate\_stats\_report@{generate\_stats\_report}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{generate\_stats\_report()}{generate\_stats\_report()}}
+{\footnotesize\ttfamily \label{namespacestats_a9909318f6d3d217f3ec651fc439c13e6} 
+ dict stats.\+generate\+\_\+stats\+\_\+report (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Generuje kompleksowy raport statystyczny. 
+
+Raport zawiera\+:
+\begin{DoxyItemize}
+\item Łączną i średnią liczbę goli
+\item Listę najlepszych strzelców
+\item Listę drużyn z najlepszymi wynikami względem rankingu
+\item Automatycznie generuje wykresy
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacestats_ab52a33486d94abddd6924906476c5c60}\index{stats@{stats}!get\_average\_goals\_per\_team@{get\_average\_goals\_per\_team}}
+\index{get\_average\_goals\_per\_team@{get\_average\_goals\_per\_team}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{get\_average\_goals\_per\_team()}{get\_average\_goals\_per\_team()}}
+{\footnotesize\ttfamily \label{namespacestats_ab52a33486d94abddd6924906476c5c60} 
+ float stats.\+get\+\_\+average\+\_\+goals\+\_\+per\+\_\+team (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Oblicza średnią liczbę goli na drużynę 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float Średnia liczba goli 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Jeśli lista drużyn jest pusta \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{namespacestats_a4f72ed0dff8184e13c30ab66b752e590}\index{stats@{stats}!get\_goal\_distribution@{get\_goal\_distribution}}
+\index{get\_goal\_distribution@{get\_goal\_distribution}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{get\_goal\_distribution()}{get\_goal\_distribution()}}
+{\footnotesize\ttfamily \label{namespacestats_a4f72ed0dff8184e13c30ab66b752e590} 
+ dict stats.\+get\+\_\+goal\+\_\+distribution (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Zwraca rozkład goli według drużyn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Słownik w formacie \{nazwa\+\_\+drużyny\+: liczba\+\_\+goli\} 
+\end{DoxyReturn}
+\Hypertarget{namespacestats_abb26890dc87f43f1ac47e32c73b6eb96}\index{stats@{stats}!get\_top\_scorers@{get\_top\_scorers}}
+\index{get\_top\_scorers@{get\_top\_scorers}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{get\_top\_scorers()}{get\_top\_scorers()}}
+{\footnotesize\ttfamily \label{namespacestats_abb26890dc87f43f1ac47e32c73b6eb96} 
+ List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]} stats.\+get\+\_\+top\+\_\+scorers (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{, }\item[{int }]{top\+\_\+n}{ = {\ttfamily 5}}\end{DoxyParamCaption})}
+
+
+
+Zwraca listę najlepszych strzelców. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+{\em top\+\_\+n} & int Liczba najlepszych strzelców do zwrócenia (domyślnie 5) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Posortowana lista drużyn według liczby goli 
+\end{DoxyReturn}
+\Hypertarget{namespacestats_a788045133b03023981a82b5dff933a87}\index{stats@{stats}!get\_total\_goals@{get\_total\_goals}}
+\index{get\_total\_goals@{get\_total\_goals}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{get\_total\_goals()}{get\_total\_goals()}}
+{\footnotesize\ttfamily \label{namespacestats_a788045133b03023981a82b5dff933a87} 
+ int stats.\+get\+\_\+total\+\_\+goals (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Oblicza łączną liczbę goli w turnieju. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} reprezentujących drużyny \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Suma goli wszystkich drużyn 
+\end{DoxyReturn}
+\Hypertarget{namespacestats_a5cbba8a2e3bfe97c3c110b39afabc1c3}\index{stats@{stats}!plot\_goals\_distribution@{plot\_goals\_distribution}}
+\index{plot\_goals\_distribution@{plot\_goals\_distribution}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{plot\_goals\_distribution()}{plot\_goals\_distribution()}}
+{\footnotesize\ttfamily \label{namespacestats_a5cbba8a2e3bfe97c3c110b39afabc1c3} 
+stats.\+plot\+\_\+goals\+\_\+distribution (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Generuje i zapisuje wykres słupkowy rozkładu goli. 
+
+Wykres zawiera\+:
+\begin{DoxyItemize}
+\item Słupki przedstawiające liczbę goli każdej drużyny
+\item Etykiety z dokładnymi wartościami nad słupkami
+\item Automatyczne dopasowanie rozmiaru wykresu
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacestats_a0f2dc824a5da47887787d06378fc5abd}\index{stats@{stats}!plot\_rank\_vs\_performance@{plot\_rank\_vs\_performance}}
+\index{plot\_rank\_vs\_performance@{plot\_rank\_vs\_performance}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{plot\_rank\_vs\_performance()}{plot\_rank\_vs\_performance()}}
+{\footnotesize\ttfamily \label{namespacestats_a0f2dc824a5da47887787d06378fc5abd} 
+stats.\+plot\+\_\+rank\+\_\+vs\+\_\+performance (\begin{DoxyParamCaption}\item[{List\mbox{[}\mbox{\hyperlink{classmodels_1_1_team}{Team}}\mbox{]}}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Generuje wykres porównujący ranking FIFA z osiągnięciami. 
+
+Tworzy podwójny wykres punktowy\+:
+\begin{DoxyEnumerate}
+\item Ranking FIFA vs punkty w turnieju
+\item Ranking FIFA vs liczba goli Zawiera etykiety z nazwami drużyn.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Zapisuje wykres do pliku rank\+\_\+vs\+\_\+performance.\+png 
+\end{DoxyPostcond}
+\Hypertarget{namespacestats_a25b98ece4812e8f74f4cde211122f0d4}\index{stats@{stats}!print\_stats\_report@{print\_stats\_report}}
+\index{print\_stats\_report@{print\_stats\_report}!stats@{stats}}
+\doxysubsubsection{\texorpdfstring{print\_stats\_report()}{print\_stats\_report()}}
+{\footnotesize\ttfamily \label{namespacestats_a25b98ece4812e8f74f4cde211122f0d4} 
+stats.\+print\+\_\+stats\+\_\+report (\begin{DoxyParamCaption}\item[{dict}]{report}{}\end{DoxyParamCaption})}
+
+
+
+Wyświetla raport statystyczny w czytelnej formie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em report} & dict Słownik z raportem wygenerowanym przez \doxylink{namespacestats_a9909318f6d3d217f3ec651fc439c13e6}{generate\+\_\+stats\+\_\+report()} \\
+\hline
+\end{DoxyParams}

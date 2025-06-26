@@ -1,0 +1,122 @@
+\doxysection{models.\+Team Class Reference}
+\hypertarget{classmodels_1_1_team}{}\label{classmodels_1_1_team}\index{models.Team@{models.Team}}
+
+
+Klasa reprezentująca drużynę piłkarską  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1_team_a03c03afc1b78796223a5a742bdcc6fe2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, name)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja obiektu drużyny. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_team_aa6e0722779b32768f19142c6508884ee}{get\+\_\+strength}} (self)
+\begin{DoxyCompactList}\small\item\em Oblicza siłę drużyny w przedziale 0-\/1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_team_af053c8a6b0b641753708921cb50dde26}{\+\_\+\+\_\+str\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Reprezentacja tekstowa drużyny. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmodels_1_1_team_a36474d9437f31557e145945a386a5a64}\label{classmodels_1_1_team_a36474d9437f31557e145945a386a5a64} 
+{\bfseries original\+\_\+name} = name
+\item 
+\Hypertarget{classmodels_1_1_team_a96326c3146368e9e0c73644bfbb3f239}\label{classmodels_1_1_team_a96326c3146368e9e0c73644bfbb3f239} 
+{\bfseries name} = normalize\+\_\+country\+\_\+name(name)
+\item 
+\Hypertarget{classmodels_1_1_team_aac9197b055decdd3acb7e94bdb1cbbaa}\label{classmodels_1_1_team_aac9197b055decdd3acb7e94bdb1cbbaa} 
+int {\bfseries points} = 0
+\item 
+\Hypertarget{classmodels_1_1_team_a3be3759e58780946f4578e9258ed5010}\label{classmodels_1_1_team_a3be3759e58780946f4578e9258ed5010} 
+int {\bfseries goals} = 0
+\item 
+\Hypertarget{classmodels_1_1_team_a06a81ad0e9716468783c9c9f67af6012}\label{classmodels_1_1_team_a06a81ad0e9716468783c9c9f67af6012} 
+{\bfseries fifa\+\_\+rank} = self.\+\_\+get\+\_\+fifa\+\_\+rank()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1_team_ace749a6276cc9bdd8c90c3b7abfb81f2}{\+\_\+get\+\_\+fifa\+\_\+rank}} (self)
+\begin{DoxyCompactList}\small\item\em Pobiera ranking FIFA dla drużyny. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentująca drużynę piłkarską 
+
+Przechowuje informacje o drużynie i oblicza jej siłę na podstawie rankingu FIFA. 
+
+\label{doc-constructors}
+\Hypertarget{classmodels_1_1_team_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmodels_1_1_team_a03c03afc1b78796223a5a742bdcc6fe2}\index{models.Team@{models.Team}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.Team@{models.Team}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_team_a03c03afc1b78796223a5a742bdcc6fe2} 
+models.\+Team.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Inicjalizacja obiektu drużyny. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & str Nazwa drużyny w formacie do normalizacji \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classmodels_1_1_team_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmodels_1_1_team_af053c8a6b0b641753708921cb50dde26}\index{models.Team@{models.Team}!\_\_str\_\_@{\_\_str\_\_}}
+\index{\_\_str\_\_@{\_\_str\_\_}!models.Team@{models.Team}}
+\doxysubsubsection{\texorpdfstring{\_\_str\_\_()}{\_\_str\_\_()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_team_af053c8a6b0b641753708921cb50dde26} 
+models.\+Team.\+\_\+\+\_\+str\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Reprezentacja tekstowa drużyny. 
+
+\begin{DoxyReturn}{Returns}
+str String w formacie "{}\+Nazwa -\/ punkty pts, bramki goals (\+FIFA rank\+: X)"{} 
+\end{DoxyReturn}
+\Hypertarget{classmodels_1_1_team_ace749a6276cc9bdd8c90c3b7abfb81f2}\index{models.Team@{models.Team}!\_get\_fifa\_rank@{\_get\_fifa\_rank}}
+\index{\_get\_fifa\_rank@{\_get\_fifa\_rank}!models.Team@{models.Team}}
+\doxysubsubsection{\texorpdfstring{\_get\_fifa\_rank()}{\_get\_fifa\_rank()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_team_ace749a6276cc9bdd8c90c3b7abfb81f2} 
+models.\+Team.\+\_\+get\+\_\+fifa\+\_\+rank (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Pobiera ranking FIFA dla drużyny. 
+
+Wykorzystuje zewnętrzną funkcję get\+\_\+team\+\_\+rank() do pobrania rankingu. Dla nieznalezionych drużyn zwraca wartość 211 (najniższy możliwy ranking).
+
+\begin{DoxyReturn}{Returns}
+int Pozycja w rankingu FIFA 
+\end{DoxyReturn}
+\Hypertarget{classmodels_1_1_team_aa6e0722779b32768f19142c6508884ee}\index{models.Team@{models.Team}!get\_strength@{get\_strength}}
+\index{get\_strength@{get\_strength}!models.Team@{models.Team}}
+\doxysubsubsection{\texorpdfstring{get\_strength()}{get\_strength()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_team_aa6e0722779b32768f19142c6508884ee} 
+models.\+Team.\+get\+\_\+strength (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Oblicza siłę drużyny w przedziale 0-\/1. 
+
+Wzór obliczeniowy\+:
+\begin{DoxyItemize}
+\item Top 10\+: 0.\+9 -\/ (rank \texorpdfstring{$\ast$}{*} 0.\+02)
+\item Top 50\+: 0.\+7 -\/ ((rank-\/10) \texorpdfstring{$\ast$}{*} 0.\+01)
+\item Pozostałe\+: 0.\+3 -\/ ((rank-\/50) \texorpdfstring{$\ast$}{*} 0.\+0025)
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+float Wartość siły drużyny (0-\/1) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+models.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,109 @@
+\doxysection{transfermarkt\+\_\+rankings Namespace Reference}
+\hypertarget{namespacetransfermarkt__rankings}{}\label{namespacetransfermarkt__rankings}\index{transfermarkt\_rankings@{transfermarkt\_rankings}}
+
+
+Moduł do pobierania i przetwarzania rankingu FIFA z Transfermarkt.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+List\mbox{[}Dict\mbox{[}str, str\mbox{]}\mbox{]} \mbox{\hyperlink{namespacetransfermarkt__rankings_a055e0525ed197ecc45cd1a934072228d}{get\+\_\+full\+\_\+rankings}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera pełny ranking FIFA ze strony Transfermarkt. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespacetransfermarkt__rankings_ae491803c5dfb24b414af4e215f81eec6}{normalize\+\_\+country\+\_\+name}} (str name)
+\begin{DoxyCompactList}\small\item\em Normalizuje nazwę kraju do standardowej formy angielskiej. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacetransfermarkt__rankings_ab471b419600f46076c5be5ac93581f77}{get\+\_\+team\+\_\+rank}} (str team\+\_\+name, List\mbox{[}Dict\mbox{]} rankings)
+\begin{DoxyCompactList}\small\item\em Wyszukuje pozycję drużyny w rankingu FIFA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Moduł do pobierania i przetwarzania rankingu FIFA z Transfermarkt. 
+
+Moduł zawiera funkcje do\+:
+\begin{DoxyItemize}
+\item Pobierania pełnego rankingu 211 drużyn narodowych
+\item Normalizacji nazw krajów
+\item Wyszukiwania pozycji konkretnych drużyn
+\end{DoxyItemize}
+
+@requires requests @requires bs4.\+Beautiful\+Soup 
+
+\label{doc-func-members}
+\Hypertarget{namespacetransfermarkt__rankings_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetransfermarkt__rankings_a055e0525ed197ecc45cd1a934072228d}\index{transfermarkt\_rankings@{transfermarkt\_rankings}!get\_full\_rankings@{get\_full\_rankings}}
+\index{get\_full\_rankings@{get\_full\_rankings}!transfermarkt\_rankings@{transfermarkt\_rankings}}
+\doxysubsubsection{\texorpdfstring{get\_full\_rankings()}{get\_full\_rankings()}}
+{\footnotesize\ttfamily \label{namespacetransfermarkt__rankings_a055e0525ed197ecc45cd1a934072228d} 
+ List\mbox{[}Dict\mbox{[}str, str\mbox{]}\mbox{]} transfermarkt\+\_\+rankings.\+get\+\_\+full\+\_\+rankings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera pełny ranking FIFA ze strony Transfermarkt. 
+
+Wykonuje następujące kroki\+:
+\begin{DoxyEnumerate}
+\item Łączy się z główną stroną rankingu
+\item Określa liczbę podstron z rankingiem
+\item Iteracyjnie pobiera dane ze wszystkich stron
+\item Parsuje dane przy użyciu Beautiful\+Soup
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+List\mbox{[}Dict\mbox{]} Lista słowników z danymi drużyn w formacie\+:
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & W przypadku problemów z połączeniem lub parsowaniem \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacetransfermarkt__rankings_ab471b419600f46076c5be5ac93581f77}\index{transfermarkt\_rankings@{transfermarkt\_rankings}!get\_team\_rank@{get\_team\_rank}}
+\index{get\_team\_rank@{get\_team\_rank}!transfermarkt\_rankings@{transfermarkt\_rankings}}
+\doxysubsubsection{\texorpdfstring{get\_team\_rank()}{get\_team\_rank()}}
+{\footnotesize\ttfamily \label{namespacetransfermarkt__rankings_ab471b419600f46076c5be5ac93581f77} 
+ int transfermarkt\+\_\+rankings.\+get\+\_\+team\+\_\+rank (\begin{DoxyParamCaption}\item[{str}]{team\+\_\+name}{, }\item[{List\mbox{[}Dict\mbox{]}}]{rankings}{}\end{DoxyParamCaption})}
+
+
+
+Wyszukuje pozycję drużyny w rankingu FIFA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team\+\_\+name} & str Nazwa drużyny do wyszukania \\
+\hline
+{\em rankings} & List\mbox{[}Dict\mbox{]} Pełna lista rankingowa z \doxylink{namespacetransfermarkt__rankings_a055e0525ed197ecc45cd1a934072228d}{get\+\_\+full\+\_\+rankings()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Pozycja w rankingu
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 211} & Jeśli drużyna nie zostanie znaleziona w rankingu \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{namespacetransfermarkt__rankings_ae491803c5dfb24b414af4e215f81eec6}\index{transfermarkt\_rankings@{transfermarkt\_rankings}!normalize\_country\_name@{normalize\_country\_name}}
+\index{normalize\_country\_name@{normalize\_country\_name}!transfermarkt\_rankings@{transfermarkt\_rankings}}
+\doxysubsubsection{\texorpdfstring{normalize\_country\_name()}{normalize\_country\_name()}}
+{\footnotesize\ttfamily \label{namespacetransfermarkt__rankings_ae491803c5dfb24b414af4e215f81eec6} 
+ str transfermarkt\+\_\+rankings.\+normalize\+\_\+country\+\_\+name (\begin{DoxyParamCaption}\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Normalizuje nazwę kraju do standardowej formy angielskiej. 
+
+Wykonuje następujące operacje\+:
+\begin{DoxyEnumerate}
+\item Konwersja na małe litery
+\item Mapowanie znanych nazw lokalnych na angielskie
+\item Kapitalizacja pierwszej litery
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & str Oryginalna nazwa kraju \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Znormalizowana nazwa kraju 
+\end{DoxyReturn}

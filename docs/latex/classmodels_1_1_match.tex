@@ -1,0 +1,155 @@
+\doxysection{models.\+Match Class Reference}
+\hypertarget{classmodels_1_1_match}{}\label{classmodels_1_1_match}\index{models.Match@{models.Match}}
+
+
+Klasa reprezentująca mecz piłkarski.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1_match_a39f415b07704947ef8a7c8d502f74383}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, team1, team2, phase="{}Faza grupowa"{})
+\begin{DoxyCompactList}\small\item\em Inicjalizacja obiektu meczu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_match_a61351c02fa2adff3f24f2dd002810b80}{play}} (self)
+\begin{DoxyCompactList}\small\item\em Symuluje mecz piłkarski. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_match_ad5021f02db77114e1db12def22f335e4}{play\+\_\+penalties}} (self)
+\begin{DoxyCompactList}\small\item\em Symuluje rzuty karne. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_match_ae46631f77574b74c2423086c06bba766}{get\+\_\+winner}} (self)
+\begin{DoxyCompactList}\small\item\em Określa zwycięzcę meczu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_match_acf30fbe899094306a112ad0a231d1a23}{get\+\_\+loser}} (self)
+\begin{DoxyCompactList}\small\item\em Określa przegranego meczu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodels_1_1_match_a5ef83cdccdd588ac41b04cff326d6249}{summary}} (self)
+\begin{DoxyCompactList}\small\item\em Generuje tekstowe podsumowanie meczu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmodels_1_1_match_aa79aa57ee7a04bf98c26fadaf820a97f}\label{classmodels_1_1_match_aa79aa57ee7a04bf98c26fadaf820a97f} 
+{\bfseries team1} = team1
+\item 
+\Hypertarget{classmodels_1_1_match_a35eccf2dcb9ea47d44727ab22c8baec1}\label{classmodels_1_1_match_a35eccf2dcb9ea47d44727ab22c8baec1} 
+{\bfseries team2} = team2
+\item 
+\Hypertarget{classmodels_1_1_match_a481c05d564531bd715b769333174a02f}\label{classmodels_1_1_match_a481c05d564531bd715b769333174a02f} 
+tuple {\bfseries score} = (0, 0)
+\item 
+\Hypertarget{classmodels_1_1_match_ad7e793985729b5671aff1f22612c1cc5}\label{classmodels_1_1_match_ad7e793985729b5671aff1f22612c1cc5} 
+{\bfseries phase} = phase
+\item 
+\Hypertarget{classmodels_1_1_match_af82288214013d1cf2dea1293f20954d9}\label{classmodels_1_1_match_af82288214013d1cf2dea1293f20954d9} 
+tuple {\bfseries penalty\+\_\+result} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentująca mecz piłkarski. 
+
+Zawiera logikę symulacji meczu i rzutów karnych. 
+
+\label{doc-constructors}
+\Hypertarget{classmodels_1_1_match_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmodels_1_1_match_a39f415b07704947ef8a7c8d502f74383}\index{models.Match@{models.Match}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_a39f415b07704947ef8a7c8d502f74383} 
+models.\+Match.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{team1}{, }\item[{}]{team2}{, }\item[{}]{phase}{ = {\ttfamily "{}Faza~grupowa"{}}}\end{DoxyParamCaption})}
+
+
+
+Inicjalizacja obiektu meczu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team1} & \doxylink{classmodels_1_1_team}{Team} Pierwsza drużyna \\
+\hline
+{\em team2} & \doxylink{classmodels_1_1_team}{Team} Druga drużyna \\
+\hline
+{\em phase} & str Faza turnieju (domyślnie "{}\+Faza grupowa"{}) \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classmodels_1_1_match_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmodels_1_1_match_acf30fbe899094306a112ad0a231d1a23}\index{models.Match@{models.Match}!get\_loser@{get\_loser}}
+\index{get\_loser@{get\_loser}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{get\_loser()}{get\_loser()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_acf30fbe899094306a112ad0a231d1a23} 
+models.\+Match.\+get\+\_\+loser (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Określa przegranego meczu. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classmodels_1_1_team}{Team} Przegrana drużyna 
+\end{DoxyReturn}
+\Hypertarget{classmodels_1_1_match_ae46631f77574b74c2423086c06bba766}\index{models.Match@{models.Match}!get\_winner@{get\_winner}}
+\index{get\_winner@{get\_winner}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{get\_winner()}{get\_winner()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_ae46631f77574b74c2423086c06bba766} 
+models.\+Match.\+get\+\_\+winner (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Określa zwycięzcę meczu. 
+
+Uwzględnia\+:
+\begin{DoxyItemize}
+\item Wynik podstawowy
+\item Ewentualne rzuty karne
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classmodels_1_1_team}{Team} Zwycięska drużyna 
+\end{DoxyReturn}
+\Hypertarget{classmodels_1_1_match_a61351c02fa2adff3f24f2dd002810b80}\index{models.Match@{models.Match}!play@{play}}
+\index{play@{play}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_a61351c02fa2adff3f24f2dd002810b80} 
+models.\+Match.\+play (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Symuluje mecz piłkarski. 
+
+Algorytm symulacji\+:
+\begin{DoxyEnumerate}
+\item Oblicza siłę obu drużyn
+\item Generuje liczbę goli z rozkładu normalnego
+\item Ogranicza wynik do max 7 goli
+\item W fazie grupowej przyznaje punkty
+\item W fazie pucharowej w przypadku remisu przeprowadza rzuty karne 
+\end{DoxyEnumerate}\Hypertarget{classmodels_1_1_match_ad5021f02db77114e1db12def22f335e4}\index{models.Match@{models.Match}!play\_penalties@{play\_penalties}}
+\index{play\_penalties@{play\_penalties}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{play\_penalties()}{play\_penalties()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_ad5021f02db77114e1db12def22f335e4} 
+models.\+Match.\+play\+\_\+penalties (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Symuluje rzuty karne. 
+
+Każda drużyna wykonuje 5 strzałów\+:
+\begin{DoxyItemize}
+\item Prawdopodobieństwo trafienia zależy od siły drużyny
+\item W przypadku remisu następuje seria "{}nagłej śmierci"{} 
+\end{DoxyItemize}\Hypertarget{classmodels_1_1_match_a5ef83cdccdd588ac41b04cff326d6249}\index{models.Match@{models.Match}!summary@{summary}}
+\index{summary@{summary}!models.Match@{models.Match}}
+\doxysubsubsection{\texorpdfstring{summary()}{summary()}}
+{\footnotesize\ttfamily \label{classmodels_1_1_match_a5ef83cdccdd588ac41b04cff326d6249} 
+models.\+Match.\+summary (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Generuje tekstowe podsumowanie meczu. 
+
+\begin{DoxyReturn}{Returns}
+str String w formacie\+: "{}\mbox{[}\+Faza\mbox{]} Drużyna1 X \+: Y Drużyna2 \mbox{[}⚽ karne\+: A-\/\+B\mbox{]}"{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+models.\+py\end{DoxyCompactItemize}

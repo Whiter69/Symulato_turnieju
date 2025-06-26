@@ -1,0 +1,139 @@
+\doxysection{main Namespace Reference}
+\hypertarget{namespacemain}{}\label{namespacemain}\index{main@{main}}
+
+
+Symulator Turnieju Piłkarskiego -\/ moduł główny.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_aceb799301bf7e09191275e388b6fd8e1}{get\+\_\+teams\+\_\+from\+\_\+user}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera od użytkownika nazwy 8 drużyn. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a45cf0964952f02deacc26a86fd9b1f72}{play\+\_\+group\+\_\+matches}} (group\+\_\+name, teams)
+\begin{DoxyCompactList}\small\item\em Przeprowadza wszystkie mecze w fazie grupowej. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a4ab78a8628d09b456b10215c46dfb470}{sort\+\_\+group}} (teams)
+\begin{DoxyCompactList}\small\item\em Sortuje drużyny według zasad klasyfikacji turniejowej. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a7afab71b20a149d3974e8679324f3df6}{play\+\_\+knockout}} (name, team1, team2)
+\begin{DoxyCompactList}\small\item\em Przeprowadza mecz w fazie pucharowej. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}{main}} ()
+\begin{DoxyCompactList}\small\item\em Główna funkcja uruchamiająca symulator turnieju. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Symulator Turnieju Piłkarskiego -\/ moduł główny. 
+
+Moduł odpowiedzialny za zarządzanie całym turniejem piłkarskim. Zawiera logikę przepływu turnieju od fazy grupowej do finału.
+
+\begin{DoxyAuthor}{Author}
+Sebastian Orman, Michał Nowakowski 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacemain_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemain_aceb799301bf7e09191275e388b6fd8e1}\index{main@{main}!get\_teams\_from\_user@{get\_teams\_from\_user}}
+\index{get\_teams\_from\_user@{get\_teams\_from\_user}!main@{main}}
+\doxysubsubsection{\texorpdfstring{get\_teams\_from\_user()}{get\_teams\_from\_user()}}
+{\footnotesize\ttfamily \label{namespacemain_aceb799301bf7e09191275e388b6fd8e1} 
+main.\+get\+\_\+teams\+\_\+from\+\_\+user (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera od użytkownika nazwy 8 drużyn. 
+
+Interaktywnie zbiera nazwy drużyn od użytkownika i tworzy obiekty \doxylink{classmodels_1_1_team}{Team}. Weryfikuje poprawność danych wejściowych.
+
+\begin{DoxyReturn}{Returns}
+List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} reprezentujących drużyny 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Value\+Error} & Jeśli nazwa drużyny jest pusta \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}\index{main@{main}!main@{main}}
+\index{main@{main}!main@{main}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88} 
+main.\+main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Główna funkcja uruchamiająca symulator turnieju. 
+
+Kolejność działań\+:
+\begin{DoxyEnumerate}
+\item Pobranie drużyn od użytkownika
+\item Losowe przydzielenie do grup
+\item Rozegranie fazy grupowej
+\item Rozegranie fazy pucharowej
+\item Wyświetlenie wyników
+\item Zapis statystyk 
+\end{DoxyEnumerate}\Hypertarget{namespacemain_a45cf0964952f02deacc26a86fd9b1f72}\index{main@{main}!play\_group\_matches@{play\_group\_matches}}
+\index{play\_group\_matches@{play\_group\_matches}!main@{main}}
+\doxysubsubsection{\texorpdfstring{play\_group\_matches()}{play\_group\_matches()}}
+{\footnotesize\ttfamily \label{namespacemain_a45cf0964952f02deacc26a86fd9b1f72} 
+main.\+play\+\_\+group\+\_\+matches (\begin{DoxyParamCaption}\item[{}]{group\+\_\+name}{, }\item[{}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Przeprowadza wszystkie mecze w fazie grupowej. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group\+\_\+name} & str Nazwa grupy (np. \textquotesingle{}A\textquotesingle{}, \textquotesingle{}B\textquotesingle{}) \\
+\hline
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_team}{Team} w grupie\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List\mbox{[}\doxylink{classmodels_1_1_match}{Match}\mbox{]} Lista obiektów \doxylink{classmodels_1_1_match}{Match} z rozegranymi meczami 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a7afab71b20a149d3974e8679324f3df6}\index{main@{main}!play\_knockout@{play\_knockout}}
+\index{play\_knockout@{play\_knockout}!main@{main}}
+\doxysubsubsection{\texorpdfstring{play\_knockout()}{play\_knockout()}}
+{\footnotesize\ttfamily \label{namespacemain_a7afab71b20a149d3974e8679324f3df6} 
+main.\+play\+\_\+knockout (\begin{DoxyParamCaption}\item[{}]{name}{, }\item[{}]{team1}{, }\item[{}]{team2}{}\end{DoxyParamCaption})}
+
+
+
+Przeprowadza mecz w fazie pucharowej. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & str Nazwa fazy (np. \textquotesingle{}Półfinał 1\textquotesingle{}) \\
+\hline
+{\em team1} & \doxylink{classmodels_1_1_team}{Team} Pierwsza drużyna \\
+\hline
+{\em team2} & \doxylink{classmodels_1_1_team}{Team} Druga drużyna\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmodels_1_1_match}{Match} Obiekt reprezentujący rozegrany mecz 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a4ab78a8628d09b456b10215c46dfb470}\index{main@{main}!sort\_group@{sort\_group}}
+\index{sort\_group@{sort\_group}!main@{main}}
+\doxysubsubsection{\texorpdfstring{sort\_group()}{sort\_group()}}
+{\footnotesize\ttfamily \label{namespacemain_a4ab78a8628d09b456b10215c46dfb470} 
+main.\+sort\+\_\+group (\begin{DoxyParamCaption}\item[{}]{teams}{}\end{DoxyParamCaption})}
+
+
+
+Sortuje drużyny według zasad klasyfikacji turniejowej. 
+
+Kryteria sortowania\+:
+\begin{DoxyItemize}
+\item Liczba punktów (malejąco)
+\item Liczba bramek (malejąco)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Lista drużyn do posortowania\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List\mbox{[}\doxylink{classmodels_1_1_team}{Team}\mbox{]} Posortowana lista drużyn 
+\end{DoxyReturn}

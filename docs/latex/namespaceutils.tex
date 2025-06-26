@@ -1,0 +1,53 @@
+\doxysection{utils Namespace Reference}
+\hypertarget{namespaceutils}{}\label{namespaceutils}\index{utils@{utils}}
+
+
+Moduł pomocniczy do operacji na danych turnieju.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceutils_a010a28eacccd2428c765aea3c2b892f1}{save\+\_\+results}} (teams, filename="{}data.\+json"{})
+\begin{DoxyCompactList}\small\item\em Zapisuje wyniki turnieju do pliku w formacie JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Moduł pomocniczy do operacji na danych turnieju. 
+
+Moduł zawiera funkcje do\+:
+\begin{DoxyItemize}
+\item Zapis wyników turnieju do formatu JSON
+\item Obsługi danych turniejowych
+\end{DoxyItemize}
+
+@requires json 
+
+\label{doc-func-members}
+\Hypertarget{namespaceutils_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceutils_a010a28eacccd2428c765aea3c2b892f1}\index{utils@{utils}!save\_results@{save\_results}}
+\index{save\_results@{save\_results}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{save\_results()}{save\_results()}}
+{\footnotesize\ttfamily \label{namespaceutils_a010a28eacccd2428c765aea3c2b892f1} 
+utils.\+save\+\_\+results (\begin{DoxyParamCaption}\item[{}]{teams}{, }\item[{}]{filename}{ = {\ttfamily "{}data.json"{}}}\end{DoxyParamCaption})}
+
+
+
+Zapisuje wyniki turnieju do pliku w formacie JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teams} & List\mbox{[}Team\mbox{]} Lista obiektów Team do zapisania \\
+\hline
+{\em filename} & str Nazwa pliku wyjściowego (domyślnie "{}data.\+json"{})\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOError} & W przypadku problemów z zapisem do pliku \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPostcond}{Postcondition}
+Tworzy plik JSON z danymi turniejowymi 
+\end{DoxyPostcond}
