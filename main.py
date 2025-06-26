@@ -1,15 +1,27 @@
-"""
-Symulator Turnieju Piłkarskiego
+"""!
+@brief Symulator Turnieju Piłkarskiego - moduł główny
+
+Moduł odpowiedzialny za zarządzanie całym turniejem piłkarskim.
+Zawiera logikę przepływu turnieju od fazy grupowej do finału.
+
+@author Sebastian Orman, Michał Nowakowski
+
 """
 
-from models import Team,Match
+from models import Team, Match
 from utils import save_results
 from stats import get_total_goals, generate_stats_report, print_stats_report
 import random
 
 def get_teams_from_user():
-    """
-    Pobiera od użytkownika nazwy 8 drużyn w języku angielskim.
+    """!
+    @brief Pobiera od użytkownika nazwy 8 drużyn
+
+    Interaktywnie zbiera nazwy drużyn od użytkownika i tworzy obiekty Team.
+    Weryfikuje poprawność danych wejściowych.
+
+    @return List[Team] Lista obiektów Team reprezentujących drużyny
+    @throws ValueError Jeśli nazwa drużyny jest pusta
     """
     print("=== Symulator turnieju piłkarskiego reprezentacji ===")
     print("Proszę podać nazwy reprezentacji w języku angielskim:")
@@ -34,6 +46,14 @@ def get_teams_from_user():
 
 
 def play_group_matches(group_name, teams):
+    """!
+    @brief Przeprowadza wszystkie mecze w fazie grupowej
+
+    @param group_name str Nazwa grupy (np. 'A', 'B')
+    @param teams List[Team] Lista obiektów Team w grupie
+
+    @return List[Match] Lista obiektów Match z rozegranymi meczami
+    """
     print(f"\n=== Faza grupowa: Grupa {group_name} ===")
     matches = []
     for i, t1 in enumerate(teams):
@@ -46,10 +66,30 @@ def play_group_matches(group_name, teams):
 
 
 def sort_group(teams):
+    """!
+    @brief Sortuje drużyny według zasad klasyfikacji turniejowej
+
+    Kryteria sortowania:
+    - Liczba punktów (malejąco)
+    - Liczba bramek (malejąco)
+
+    @param teams List[Team] Lista drużyn do posortowania
+
+    @return List[Team] Posortowana lista drużyn
+    """
     return sorted(teams, key=lambda t: (t.points, t.goals), reverse=True)
 
 
 def play_knockout(name, team1, team2):
+    """!
+    @brief Przeprowadza mecz w fazie pucharowej
+
+    @param name str Nazwa fazy (np. 'Półfinał 1')
+    @param team1 Team Pierwsza drużyna
+    @param team2 Team Druga drużyna
+
+    @return Match Obiekt reprezentujący rozegrany mecz
+    """
     print(f"\n=== {name} ===")
     match = Match(team1, team2, name)
     match.play()
@@ -58,6 +98,17 @@ def play_knockout(name, team1, team2):
 
 
 def main():
+    """!
+    @brief Główna funkcja uruchamiająca symulator turnieju
+
+    Kolejność działań:
+    1. Pobranie drużyn od użytkownika
+    2. Losowe przydzielenie do grup
+    3. Rozegranie fazy grupowej
+    4. Rozegranie fazy pucharowej
+    5. Wyświetlenie wyników
+    6. Zapis statystyk
+    """
     print("=== Symulator Turnieju Piłkarskiego (8 drużyn) ===")
     teams = get_teams_from_user()
     random.shuffle(teams)

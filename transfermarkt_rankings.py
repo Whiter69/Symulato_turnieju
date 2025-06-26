@@ -1,13 +1,35 @@
+"""!
+@brief Moduł do pobierania i przetwarzania rankingu FIFA z Transfermarkt
+
+Moduł zawiera funkcje do:
+- Pobierania pełnego rankingu 211 drużyn narodowych
+- Normalizacji nazw krajów
+- Wyszukiwania pozycji konkretnych drużyn
+
+@requires requests
+@requires bs4.BeautifulSoup
+
 """
-Moduł do pobierania pełnego rankingu FIFA (211 drużyn) z Transfermarkt
-"""
+
 import requests
 from bs4 import BeautifulSoup
 from typing import List, Dict
 
 def get_full_rankings() -> List[Dict[str, str]]:
-    """
-    Pobiera pełny ranking FIFA (211 drużyn) z Transfermarkt
+    """!
+    @brief Pobiera pełny ranking FIFA ze strony Transfermarkt
+
+    @details Wykonuje następujące kroki:
+    1. Łączy się z główną stroną rankingu
+    2. Określa liczbę podstron z rankingiem
+    3. Iteracyjnie pobiera dane ze wszystkich stron
+    4. Parsuje dane przy użyciu BeautifulSoup
+
+    @return List[Dict] Lista słowników z danymi drużyn w formacie:
+
+
+    @throws Exception W przypadku problemów z połączeniem lub parsowaniem
+
     """
     url = "https://www.transfermarkt.com/statistik/weltrangliste"
 
@@ -51,8 +73,18 @@ def get_full_rankings() -> List[Dict[str, str]]:
         return []
 
 def normalize_country_name(name: str) -> str:
-    """
-    Normalizuje nazwę kraju do formy angielskiej z dużej litery
+    """!
+    @brief Normalizuje nazwę kraju do standardowej formy angielskiej
+
+    @details Wykonuje następujące operacje:
+    1. Konwersja na małe litery
+    2. Mapowanie znanych nazw lokalnych na angielskie
+    3. Kapitalizacja pierwszej litery
+
+    @param name str Oryginalna nazwa kraju
+    @return str Znormalizowana nazwa kraju
+
+
     """
     country_mapping = {
         'polska': 'Poland',
@@ -69,8 +101,17 @@ def normalize_country_name(name: str) -> str:
     return country_mapping.get(name.lower(), name.title())
 
 def get_team_rank(team_name: str, rankings: List[Dict]) -> int:
-    """
-    Znajduje ranking dla konkretnej drużyny
+    """!
+    @brief Wyszukuje pozycję drużyny w rankingu FIFA
+
+    @param team_name str Nazwa drużyny do wyszukania
+    @param rankings List[Dict] Pełna lista rankingowa z get_full_rankings()
+    @return int Pozycja w rankingu
+
+    @retval 211 Jeśli drużyna nie zostanie znaleziona w rankingu
+
+
+
     """
     normalized_name = normalize_country_name(team_name)
 

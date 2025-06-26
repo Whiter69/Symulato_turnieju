@@ -1,5 +1,14 @@
-"""
-Rozbudowany moduł statystyk z wizualizacją danych
+"""!
+@brief Rozbudowany moduł statystyk z wizualizacją danych
+
+Moduł zawiera funkcje do:
+- Obliczania statystyk turnieju
+- Generowania wykresów
+- Tworzenia raportów
+
+@requires matplotlib.pyplot
+@requires numpy
+@requires functools.reduce
 """
 
 from functools import reduce
@@ -9,38 +18,53 @@ from typing import List
 from models import Team
 
 def get_total_goals(teams: List[Team]) -> int:
-    """
-    Oblicza łączną liczbę goli w turnieju.
+    """!
+    @brief Oblicza łączną liczbę goli w turnieju
 
-    Args:
-        teams: Lista obiektów Team
-
-    Returns:
-        Suma goli wszystkich drużyn
+    @param teams List[Team] Lista obiektów Team reprezentujących drużyny
+    @return int Suma goli wszystkich drużyn
     """
     return reduce(lambda acc, t: acc + t.goals, teams, 0)
 
 def get_average_goals_per_team(teams: List[Team]) -> float:
-    """
-    Oblicza średnią liczbę goli na drużynę.
+    """!
+    @brief Oblicza średnią liczbę goli na drużynę
+
+    @param teams List[Team] Lista obiektów Team
+    @return float Średnia liczba goli
+    @retval 0 Jeśli lista drużyn jest pusta
     """
     return get_total_goals(teams) / len(teams) if teams else 0
 
 def get_goal_distribution(teams: List[Team]) -> dict:
-    """
-    Zwraca rozkład goli według drużyn.
+    """!
+    @brief Zwraca rozkład goli według drużyn
+
+    @param teams List[Team] Lista obiektów Team
+    @return dict Słownik w formacie {nazwa_drużyny: liczba_goli}
     """
     return {team.name: team.goals for team in teams}
 
 def get_top_scorers(teams: List[Team], top_n: int = 5) -> List[Team]:
-    """
-    Zwraca listę najlepszych strzelców.
+    """!
+    @brief Zwraca listę najlepszych strzelców
+
+    @param teams List[Team] Lista obiektów Team
+    @param top_n int Liczba najlepszych strzelców do zwrócenia (domyślnie 5)
+    @return List[Team] Posortowana lista drużyn według liczby goli
     """
     return sorted(teams, key=lambda t: t.goals, reverse=True)[:top_n]
 
 def plot_goals_distribution(teams: List[Team]):
-    """
-    Generuje wykres słupkowy przedstawiający liczbę goli drużyn.
+    """!
+    @brief Generuje i zapisuje wykres słupkowy rozkładu goli
+
+    @details Wykres zawiera:
+    - Słupki przedstawiające liczbę goli każdej drużyny
+    - Etykiety z dokładnymi wartościami nad słupkami
+    - Automatyczne dopasowanie rozmiaru wykresu
+
+    @param teams List[Team] Lista obiektów Team
     """
     teams_sorted = sorted(teams, key=lambda t: t.goals, reverse=True)
     names = [t.name for t in teams_sorted]
@@ -63,14 +87,19 @@ def plot_goals_distribution(teams: List[Team]):
     plt.savefig('goals_distribution.png')
     plt.close()
 
-
 def plot_rank_vs_performance(teams: List[Team]):
-    """
-    Generuje wykres porównujący ranking FIFA z osiągnięciami z nazwami drużyn.
-    """
+    """!
+    @brief Generuje wykres porównujący ranking FIFA z osiągnięciami
 
+    @details Tworzy podwójny wykres punktowy:
+    1. Ranking FIFA vs punkty w turnieju
+    2. Ranking FIFA vs liczba goli
+    Zawiera etykiety z nazwami drużyn.
+
+    @param teams List[Team] Lista obiektów Team
+    @post Zapisuje wykres do pliku rank_vs_performance.png
+    """
     teams_sorted = sorted(teams, key=lambda t: t.fifa_rank)
-
     ranks = [t.fifa_rank for t in teams_sorted]
     points = [t.points for t in teams_sorted]
     goals = [t.goals for t in teams_sorted]
@@ -115,9 +144,19 @@ def plot_rank_vs_performance(teams: List[Team]):
     plt.savefig('rank_vs_performance.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-def generate_stats_report(teams: List[Team]):
-    """
-    Generuje kompleksowy raport statystyczny.
+def generate_stats_report(teams: List[Team]) -> dict:
+    """!
+    @brief Generuje kompleksowy raport statystyczny
+
+    @details Raport zawiera:
+    - Łączną i średnią liczbę goli
+    - Listę najlepszych strzelców
+    - Listę drużyn z najlepszymi wynikami względem rankingu
+    - Automatycznie generuje wykresy
+
+    @param teams List[Team] Lista obiektów Team
+
+
     """
     report = {
         'total_goals': get_total_goals(teams),
@@ -136,8 +175,10 @@ def generate_stats_report(teams: List[Team]):
     return report
 
 def print_stats_report(report: dict):
-    """
-    Wyświetla raport statystyczny w czytelnej formie.
+    """!
+    @brief Wyświetla raport statystyczny w czytelnej formie
+
+    @param report dict Słownik z raportem wygenerowanym przez generate_stats_report()
     """
     print("\n=== RAPORT STATYSTYCZNY TURNIEJU ===")
     print(f"Łączna liczba goli: {report['total_goals']}")
