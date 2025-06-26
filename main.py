@@ -1,57 +1,44 @@
 """
 Symulator Turnieju Piłkarskiego
-
-Główny moduł programu symulującego turniej piłkarski dla 8 drużyn.
-Zawiera logikę przepływu turnieju (faza grupowa i pucharowa).
 """
 
-from models import Team, Match
+from models import Team,Match
 from utils import save_results
-from stats import get_total_goals
+from stats import get_total_goals, generate_stats_report, print_stats_report
 import random
-
 
 def get_teams_from_user():
     """
-    Pobiera od użytkownika nazwy 8 drużyn uczestniczących w turnieju.
-
-    Returns:
-        list: Lista unikalnych nazw drużyn (8 elementów)
-
-    Raises:
-        ValueError: Jeśli nazwa jest pusta lub drużyna już istnieje
+    Pobiera od użytkownika nazwy 8 drużyn w języku angielskim.
     """
-    print("Podaj dokładnie 8 drużyn do turnieju:")
-    teams = set()
+    print("=== Symulator turnieju piłkarskiego reprezentacji ===")
+    print("Proszę podać nazwy reprezentacji w języku angielskim:")
+
+    teams = []
     while len(teams) < 8:
         try:
-            name = input(f"Podaj nazwę drużyny {len(teams) + 1}: ").strip()
+            name = input(f"Wpisz reprezentacje {len(teams) + 1}: ").strip()
             if not name:
                 raise ValueError("Nazwa nie może być pusta.")
-            if name in teams:
-                raise ValueError("Drużyna o tej nazwie już istnieje.")
-            teams.add(name)
+
+            team = Team(name)
+
+            if team.fifa_rank == 211:
+                print(f"Uwaga: {team.name} nie znaleziono w rankingu FIFA. Przypisujemy najmniejszą pozycje w rankingu(211)")
+
+            print(f"  Dodano: {team.name} (FIFA ranking: {team.fifa_rank})")
+            teams.append(team)
         except ValueError as e:
             print(f"Błąd: {e}")
-    return list(teams)
+    return teams
 
 
 def play_group_matches(group_name, teams):
-    """
-    Przeprowadza wszystkie mecze w fazie grupowej.
-
-    Args:
-        group_name (str): Nazwa grupy ('A' lub 'B')
-        teams (list): Lista obiektów Team w grupie (4 drużyny)
-
-    Returns:
-        list: Lista obiektów Match z rozegranymi meczami
-    """
     print(f"\n=== Faza grupowa: Grupa {group_name} ===")
     matches = []
     for i, t1 in enumerate(teams):
         for t2 in teams[i + 1:]:
-            match = Match(t1, t2, phase=f"Grupa {group_name}")
+            match = Match(t1, t2, f"Grupa {group_name}")
             match.play()
             print(match.summary())
             matches.append(match)
@@ -59,30 +46,10 @@ def play_group_matches(group_name, teams):
 
 
 def sort_group(teams):
-    """
-    Sortuje drużyny w grupie według punktów i goli.
-
-    Args:
-        teams (list): Lista obiektów Team do posortowania
-
-    Returns:
-        list: Posortowana lista drużyn
-    """
     return sorted(teams, key=lambda t: (t.points, t.goals), reverse=True)
 
 
 def play_knockout(name, team1, team2):
-    """
-    Przeprowadza mecz w fazie pucharowej.
-
-    Args:
-        name (str): Nazwa fazy (np. 'Półfinał 1')
-        team1 (Team): Pierwsza drużyna
-        team2 (Team): Druga drużyna
-
-    Returns:
-        Match: Obiekt reprezentujący rozegrany mecz
-    """
     print(f"\n=== {name} ===")
     match = Match(team1, team2, name)
     match.play()
@@ -91,12 +58,10 @@ def play_knockout(name, team1, team2):
 
 
 def main():
-    """Główna funkcja uruchamiająca symulację turnieju."""
-    print("=== Symulator Turnieju Piłkarskiego (8 drużyn, 2 grupy) ===")
-    team_names = get_teams_from_user()
-    random.shuffle(team_names)
+    print("=== Symulator Turnieju Piłkarskiego (8 drużyn) ===")
+    teams = get_teams_from_user()
+    random.shuffle(teams)
 
-    teams = [Team(name) for name in team_names]
     group_a = teams[:4]
     group_b = teams[4:]
 
@@ -119,6 +84,9 @@ def main():
 
     save_results(teams, "data.json")
     print(f"\n📈 Łączna liczba goli w turnieju: {get_total_goals(teams)}")
+
+    report = generate_stats_report(teams)
+    print_stats_report(report)
 
 
 if __name__ == "__main__":

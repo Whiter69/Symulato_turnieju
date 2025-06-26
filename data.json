@@ -1,42 +1,50 @@
 [
     {
-        "team": "5",
-        "group points": 6,
-        "goals": 14
+        "team": "Fas",
+        "fifa_rank": 211,
+        "tournament_points": 4,
+        "goals_scored": 5
     },
     {
-        "team": "4",
-        "group points": 6,
-        "goals": 15
+        "team": "Gsdhgf",
+        "fifa_rank": 211,
+        "tournament_points": 1,
+        "goals_scored": 2
     },
     {
-        "team": "3",
-        "group points": 3,
-        "goals": 12
+        "team": "Hgf",
+        "fifa_rank": 211,
+        "tournament_points": 4,
+        "goals_scored": 3
     },
     {
-        "team": "8",
-        "group points": 3,
-        "goals": 8
+        "team": "Df",
+        "fifa_rank": 211,
+        "tournament_points": 7,
+        "goals_scored": 8
     },
     {
-        "team": "7",
-        "group points": 7,
-        "goals": 15
+        "team": "S",
+        "fifa_rank": 211,
+        "tournament_points": 4,
+        "goals_scored": 1
     },
     {
-        "team": "2",
-        "group points": 4,
-        "goals": 6
+        "team": "H",
+        "fifa_rank": 211,
+        "tournament_points": 6,
+        "goals_scored": 4
     },
     {
-        "team": "1",
-        "group points": 1,
-        "goals": 12
+        "team": "Dsa",
+        "fifa_rank": 211,
+        "tournament_points": 6,
+        "goals_scored": 5
     },
     {
-        "team": "6",
-        "group points": 4,
-        "goals": 5
+        "team": "Sd",
+        "fifa_rank": 211,
+        "tournament_points": 1,
+        "goals_scored": 0
     }
 ]
